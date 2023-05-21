@@ -8,7 +8,9 @@ I got bored so I made a simple compiler.
 ### What it does
 The toy compiler takes natural language math expressions and converts them into symbolic math expressions. 
 
-It can handle the four basic arithmetic operations: +, *, -, /
+It can handle the four basic arithmetic operations: +, *, -, /. 
+
+Additionally, the compiler can handle chaining operators "and" and "from," used to chain additional operands for commutative and noncommutative operations, respectively. 
 
 The syntax for commutitative operations: \<operation> \<number> and \<number> [and \<number>...]
 - Example: 'add 2 and 4' is equivalent to '2 + 4'
