@@ -1,7 +1,7 @@
 {
   "name": "compiler",
   "version": "1.0.0",
-  "description": "",
+  "description": "A basic compiler - written in JS - to translate math from natural language to symbolic expressions.",
   "main": "index.js",
   "type": "module",
   "scripts": {
