@@ -56,10 +56,6 @@ function buildAST(tokens){
         }
         return { type: 'operand', token: tokens[0] }
     }
-    //base case one operator and one operand
-    // if(tokens.length === 2 && tokens[1].match(/^(0|[1-9][0-9]*)$/g)){
-    //     return { type: 'operand', token: tokens[1] }
-    // }   
     //initial case
     if(tokens[0].match(/^((add)|(multiply)|(subtract)|(divide))$/)){
         return { 
@@ -156,7 +152,8 @@ function walk(syntaxTree){
         leftChild = rightChild?.children?.left
         rightChild = rightChild?.children?.right
     }
-    return outputArray.join(" ")
+    //reverse array to capture precedence of syntax tree and join to form output code string
+    return outputArray.reverse().join(" ")
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -167,7 +164,6 @@ function walk(syntaxTree){
 export default function compile(source){
     const tokens = tokenize(source)
     const syntaxTree = parse(tokens)
-    //console.log(JSON.stringify(syntaxTree, null, 4))
     check(tokens)
     const code = walk(syntaxTree)
     return code
